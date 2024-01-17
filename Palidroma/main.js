@@ -1,52 +1,53 @@
  //*** html 
-const wordDaVerificare = document.getElementById("word");
+const wordInput = document.getElementById("wordInput");
 const verifica = document.getElementById("verifica");
 const result = document.getElementById("result");
 let risposta ;
 
 verifica.addEventListener('click',function(){
-    let word = wordDaVerificare.value;
+    let word = wordInput.value;
 
-    
-
-   
-    //** trasformiamo la parola inserita in un array 
+    //** all alla funzione Reverse
     let arraySplitWord = word.split('');
-    console.log(arraySplitWord);
-    console.log(arraySplitWord.length);
+    
+    //**  call alla funzione Confronto
+    let reverseArraySplitWord = reverseArray(arraySplitWord);
+
+    //** aggiungiamo la risposta nel dom 
+    result.innerHTML = verificaLe2parole(reverseArraySplitWord , word);
+
+});
 
 
-    //** facciamo il reverse del array e salviamo un un nuovo array 
+
+
+////************ Funzioni ***********////
+
+
+//* //** Reverse di un array
+
+function reverseArray(arraySplitWord){
     let reverseArraySplitWord = '';
     for(let i = arraySplitWord.length -1; i >= 0; i--){
         reverseArraySplitWord += arraySplitWord[i];
     };
-    console.log(reverseArraySplitWord);
+    return(reverseArraySplitWord);
+};
 
 
-    //** facciamo il confronto tra la parola inserita e quella Revers
+//** Confronto
+
+function verificaLe2parole(reverseArraySplitWord , word){
 
     if(word == reverseArraySplitWord){
         risposta = "palindromo";
-        console.log("palindromo");
-
     }else{
         risposta = "Non e un palindromo";
-        console.log("Non e un palindromo");
     };
 
-    result.innerHTML = risposta;
-
-})
-
-
-
-
-
-
-
-
-
+    return(risposta);
+    
+};
 
 
 
