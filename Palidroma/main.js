@@ -6,10 +6,9 @@ let risposta ;
 
 verifica.addEventListener('click',function(){
     let word = wordInput.value;
-    let arraySplitWord = word.split('');
     
     //** call alla funzione Reverse
-    let reverseArraySplitWord = reverseArray(arraySplitWord);
+    let reverseArraySplitWord = reverseArray(word);
 
     //** call di Confronto e aggiungiamo la risposta nel dom 
     result.innerHTML = verificaLe2parole(reverseArraySplitWord , word);
@@ -24,10 +23,10 @@ verifica.addEventListener('click',function(){
 
 //* //** Reverse di un array
 
-function reverseArray(arraySplitWord){
+function reverseArray(word){
     let reverseArraySplitWord = '';
-    for(let i = arraySplitWord.length -1; i >= 0; i--){
-        reverseArraySplitWord += arraySplitWord[i];
+    for(let i = word.length -1; i >= 0; i--){
+        reverseArraySplitWord += word[i];
     };
     return(reverseArraySplitWord);
 };
