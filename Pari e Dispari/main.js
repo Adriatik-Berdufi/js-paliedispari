@@ -8,11 +8,11 @@ const choice = document.getElementById("choice")
 play.addEventListener('click' , function(){
 
     let user =  nrUser.value;
-    let Userchoise = choice.value;
+    let userchoise = choice.value;
 
     let cpuNr = randomNr(0, 9);
     let cpuChoise ; 
-    if(Userchoise == "pari"){
+    if(userchoise == "pari"){
         cpuChoise = "dispari";
     }else{
         cpuChoise = "pari";
@@ -21,14 +21,9 @@ play.addEventListener('click' , function(){
     let sommaNr = somma(user,cpuNr );
     
     let risultatoPariDispari = pariDispari(sommaNr);
-
-    if(risultatoPariDispari == Userchoise){
-        resultGame = "Hai vinto";
-    }else{
-        resultGame = "Hai perso";
-    };
-    console.log(resultGame);
-
+    console.log(risultatoPariDispari);
+    let vince = verificaChiVince(userchoise,risultatoPariDispari );
+    console.log(vince);
 
 });
 
@@ -70,3 +65,14 @@ function pariDispari(nr){
         return(" dispari ");
     };
 };
+//** verifica chi ha vinto
+function verificaChiVince(sceltaUser,risultatoSomNR){
+    let userchoise = sceltaUser;
+    let risultatoPariDispari = risultatoSomNR ;
+    if(risultatoPariDispari == userchoise){
+        resultGame = "Hai vinto";
+    }else{
+        resultGame = "Hai perso";
+    };
+    return(resultGame);
+}
