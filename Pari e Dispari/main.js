@@ -2,13 +2,44 @@ const nrUser = document.getElementById("nrInput");
 const play = document.getElementById("play");
 const nrComputer = document.getElementById("computer");
 const result = document.getElementById("result");
+const choice = document.getElementById("choice")
+
+
+play.addEventListener('click' , function(){
+
+    let user =  nrUser.value;
+    let Userchoise = choice.value;
+
+    let cpuNr = randomNr(0, 9);
+    let cpuChoise ; 
+    if(Userchoise == "pari"){
+        cpuChoise = "dispari";
+    }else{
+        cpuChoise = "pari";
+    };
+    
+    let sommaNr = somma(user,cpuNr );
+    
+    let risultatoPariDispari = pariDispari(sommaNr);
+
+    if(risultatoPariDispari == Userchoise){
+        resultGame = "Hai vinto";
+    }else{
+        resultGame = "Hai perso";
+    };
+    console.log(resultGame);
+
+
+});
 
 
 
 
 
-let risultato = pariDispari(3);
-console.log(risultato);
+
+
+
+
 
 
 //***** Funzioni  *****//
@@ -38,5 +69,4 @@ function pariDispari(nr){
     }else{
         return(" dispari ");
     };
-
 };
