@@ -7,7 +7,7 @@ const result = document.getElementById("result");
 
 
 
-let risultato = somma(1, 9);
+let risultato = pariDispari(3);
 console.log(risultato);
 
 
@@ -25,4 +25,18 @@ function randomNr(min, max){
 function somma(n1, n2){
     let sommaNumeri = n1 + n2;
     return(sommaNumeri);
-}
+};
+
+//** verifica Pari 0 Dispari  
+function pariDispari(nr){
+    let x = nr;
+
+    if(x == 0){
+        return("0 non e ne pari ne dispari");
+    }else if( x % 2 == 0){
+        return(" pari ");
+    }else{
+        return(" dispari ");
+    };
+
+};
